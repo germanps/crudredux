@@ -25,7 +25,7 @@ const NuevoProducto = () => {
             console.log("Error validación");
             return;
         }
-
+        
         agregarProducto({
             nombre,
             precio

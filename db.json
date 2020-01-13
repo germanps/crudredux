@@ -1,19 +1,19 @@
 {
-    "productos": [
-        {
-            "id": 1,
-            "nombre": "Taza de spiderman",
-            "precio": 5.95
-        },
-        {
-            "id": 2,
-            "nombre": "Taza de batman",
-            "precio": 5.95
-        },
-        {
-            "id": 1,
-            "nombre": "Taza de conan",
-            "precio": 6.95
-        }
-    ]
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Taza de spiderman",
+      "precio": 5.95
+    },
+    {
+      "id": 2,
+      "nombre": "Taza de batman",
+      "precio": 5.95
+    },
+    {
+      "id": 3,
+      "nombre": "Taza de conan",
+      "precio": 6.95
+    }
+  ]
 }
