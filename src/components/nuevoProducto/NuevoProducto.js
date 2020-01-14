@@ -3,10 +3,11 @@ import './NuevoProducto.scss';
 
 //Redux
 import { crearNuevoProductoAction } from './../../actions/productosAction';
-import { useDispatch } from 'react-redux';
+import { iniciarValidacion, validacionExito, validacionError } from './../../actions/validacionAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-const NuevoProducto = () => {
+const NuevoProducto = ({history}) => {
 
     //state
     const [nombre, guardarNombre] = useState('');
@@ -16,21 +17,36 @@ const NuevoProducto = () => {
     const dispatch = useDispatch();
     const agregarProducto = (producto) => dispatch( crearNuevoProductoAction(producto) );
 
+    //Validar formulario
+    const validarFormulario = () => dispatch( iniciarValidacion() );
+    const validarFormularioExito = () => dispatch( validacionExito() );
+    const validarFormularioError = () => dispatch( validacionError() );
+
+    //Obtener datos de error
+    const error = useSelector((state) => state.validacion.error)
+    console.log(error);
+
     //Agregar producto
     const crearNuevoProducto = e => {
         e.preventDefault();
 
-        //validar campos vacios
+        //iniciar validacion
+        validarFormulario();
+
+        //validar campos error
         if(nombre.trim() === '' || precio.trim() === ''){
-            console.log("Error validación");
+            validarFormularioError();
             return;
         }
         
+        //validar campos exito
+        validarFormularioExito();
         agregarProducto({
             nombre,
             precio
         });
-
+        //redireccionar 
+        history.push('/');
     }
 
     return(
@@ -54,14 +70,14 @@ const NuevoProducto = () => {
                                 <div className="form-group">
                                     <label>Precio</label>
                                     <input 
-                                        type="text" 
+                                        type="number" 
                                         className="form-control" 
                                         placeholder="Precio" 
                                         value={precio}
                                         onChange={ e => guardarPrecio(e.target.value)}
                                     />
                                 </div>
-
+                                {error ? <div className="font-weight-bold alert alert-danger text-center mt-4">Todos los campos son obligatorios</div> : null}
                                 <button type="submit" className="btn btn-primary font-weight-bold text-uppercase d-block w-100">Agregar</button>
                             </form>
             
