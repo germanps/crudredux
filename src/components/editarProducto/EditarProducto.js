@@ -4,7 +4,7 @@ import React from 'react';
 const EditarProducto = () => {
     return(
         <div className="editar-producto">
-            <p>EditarProducto</p>
+            <p>EditarProducto </p>
         </div>
     );
 }

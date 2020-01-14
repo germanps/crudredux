@@ -1,54 +1,19 @@
 {
   "productos": [
     {
-      "id": 1,
       "nombre": "Taza de spiderman",
-      "precio": 5.95
+      "precio": 5.95,
+      "id": "1"
     },
     {
-      "id": 2,
       "nombre": "Taza de batman",
-      "precio": 5.95
+      "precio": 5.95,
+      "id": "2"
     },
     {
-      "id": 3,
       "nombre": "Taza de conan",
-      "precio": 6.95
-    },
-    {
-      "nombre": "asdf",
-      "precio": "15",
-      "id": 4
-    },
-    {
-      "nombre": "23",
-      "precio": "23",
-      "id": 5
-    },
-    {
-      "nombre": "asdf",
-      "precio": "54",
-      "id": 6
-    },
-    {
-      "nombre": "test2",
-      "precio": "150",
-      "id": 7
-    },
-    {
-      "nombre": "asdfasf",
-      "precio": "2354234",
-      "id": 8
-    },
-    {
-      "nombre": "test",
-      "precio": "234",
-      "id": 9
-    },
-    {
-      "nombre": "ef",
-      "precio": "34",
-      "id": 10
+      "precio": 6.95,
+      "id": "3"
     }
   ]
 }

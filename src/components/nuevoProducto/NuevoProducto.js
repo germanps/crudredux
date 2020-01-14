@@ -26,6 +26,14 @@ const NuevoProducto = ({history}) => {
     const error = useSelector((state) => state.validacion.error)
     console.log(error);
 
+    //Crear ID
+    const randomID = () => {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          let r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+    }
+
     //Agregar producto
     const crearNuevoProducto = e => {
         e.preventDefault();
@@ -40,11 +48,12 @@ const NuevoProducto = ({history}) => {
         }
         
         //validar campos exito
-        validarFormularioExito();
         agregarProducto({
             nombre,
-            precio
+            precio: parseInt(precio),
+            id: randomID()
         });
+        validarFormularioExito();
         //redireccionar 
         history.push('/');
     }
